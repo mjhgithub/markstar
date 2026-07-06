@@ -6,7 +6,7 @@ base-ref: N/A（非 Git 仓库）
 
 # data-to-chart — AI Agent Skill 实施计划
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** 创建 `data-to-chart` Claude Code skill，使 LLM 能根据用户分析意图和数据特征，自动选择 ECharts 图表类型并生成完整 HTML 文件。
 
@@ -34,13 +34,13 @@ base-ref: N/A（非 Git 仓库）
 **Interfaces:**
 - Produces: SKILL.md 定义 `name: data-to-chart` 的 skill，含 frontmatter 触发规则和 5 步执行流程，引用 `reference/chart-mapping.md`、`reference/echarts-templates.md`、`reference/data-processing.md`
 
-- [ ] **Step 1: 创建 skill 根目录**
+- [x] **Step 1: 创建 skill 根目录**
 
 ```bash
 mkdir -p "/c/Users/PC/.claude/skills/data-to-chart/reference"
 ```
 
-- [ ] **Step 2: 创建 SKILL.md 完整内容**
+- [x] **Step 2: 创建 SKILL.md 完整内容**
 
 写入以下内容到 `C:\Users\PC\.claude\skills\data-to-chart\SKILL.md`：
 
@@ -152,7 +152,7 @@ description: Use when the user wants to create charts, graphs, or data visualiza
 | `reference/echarts-templates.md` | ECharts option 模板和通用配置 | Step 5 前必须加载 |
 ````
 
-- [ ] **Step 3: 验证文件已创建**
+- [x] **Step 3: 验证文件已创建**
 
 ```bash
 test -f "/c/Users/PC/.claude/skills/data-to-chart/SKILL.md" && echo "PASS: SKILL.md exists" || echo "FAIL: SKILL.md not found"
@@ -160,7 +160,7 @@ test -f "/c/Users/PC/.claude/skills/data-to-chart/SKILL.md" && echo "PASS: SKILL
 
 Expected: `PASS: SKILL.md exists`
 
-- [ ] **Step 4: 验证 frontmatter 可解析**
+- [x] **Step 4: 验证 frontmatter 可解析**
 
 ```bash
 head -5 "/c/Users/PC/.claude/skills/data-to-chart/SKILL.md" && echo "---" && echo "Frontmatter section OK"
@@ -168,7 +168,7 @@ head -5 "/c/Users/PC/.claude/skills/data-to-chart/SKILL.md" && echo "---" && ech
 
 Expected: 显示 YAML frontmatter 包含 `name: data-to-chart`
 
-- [ ] **Step 5: 提交（如使用 Git）**
+- [x] **Step 5: 提交（如使用 Git）**
 
 ```bash
 # 本次为非 Git 仓库，跳过提交步骤
@@ -186,7 +186,7 @@ echo "Task 1 complete — SKILL.md created"
 - Consumes: SKILL.md 中 Step 1 的引用
 - Produces: 12 种图表类型的完整映射表，含关键词列表、适用条件、降级方案、冲突解决决策树
 
-- [ ] **Step 1: 创建 chart-mapping.md 完整内容**
+- [x] **Step 1: 创建 chart-mapping.md 完整内容**
 
 写入以下内容到 `C:\Users\PC\.claude\skills\data-to-chart\reference\chart-mapping.md`：
 
@@ -380,7 +380,7 @@ echo "Task 1 complete — SKILL.md created"
 > **图表选型**：检测到关键词「XXX」（优先级 N），推荐使用 `<chart-type>` 图表。`<补充理由（如降级原因、适用条件匹配等）>`
 ````
 
-- [ ] **Step 2: 验证文件已创建**
+- [x] **Step 2: 验证文件已创建**
 
 ```bash
 test -f "/c/Users/PC/.claude/skills/data-to-chart/reference/chart-mapping.md" && echo "PASS" || echo "FAIL"
@@ -388,7 +388,7 @@ test -f "/c/Users/PC/.claude/skills/data-to-chart/reference/chart-mapping.md" &&
 
 Expected: `PASS`
 
-- [ ] **Step 3: 提交（如使用 Git）**
+- [x] **Step 3: 提交（如使用 Git）**
 
 ```bash
 echo "Task 2 complete — chart-mapping.md created"
@@ -405,7 +405,7 @@ echo "Task 2 complete — chart-mapping.md created"
 - Consumes: SKILL.md 中 Step 5 的引用
 - Produces: 12 种图表类型的 ECharts option 最小示例，通用配置（tooltip/legend/toolbox/color），必须项 vs 可选项标注
 
-- [ ] **Step 1: 创建 echarts-templates.md 完整内容**
+- [x] **Step 1: 创建 echarts-templates.md 完整内容**
 
 写入以下内容到 `C:\Users\PC\.claude\skills\data-to-chart\reference\echarts-templates.md`：
 
@@ -838,7 +838,7 @@ option = {
 ```
 ````
 
-- [ ] **Step 2: 验证文件已创建**
+- [x] **Step 2: 验证文件已创建**
 
 ```bash
 test -f "/c/Users/PC/.claude/skills/data-to-chart/reference/echarts-templates.md" && echo "PASS" || echo "FAIL"
@@ -846,7 +846,7 @@ test -f "/c/Users/PC/.claude/skills/data-to-chart/reference/echarts-templates.md
 
 Expected: `PASS`
 
-- [ ] **Step 3: 验证关键模板均已包含**
+- [x] **Step 3: 验证关键模板均已包含**
 
 ```bash
 grep -c "### [0-9]" "/c/Users/PC/.claude/skills/data-to-chart/reference/echarts-templates.md"
@@ -854,7 +854,7 @@ grep -c "### [0-9]" "/c/Users/PC/.claude/skills/data-to-chart/reference/echarts-
 
 Expected: 输出 `12`（12 种图表类型模板均已包含）
 
-- [ ] **Step 4: 提交（如使用 Git）**
+- [x] **Step 4: 提交（如使用 Git）**
 
 ```bash
 echo "Task 3 complete — echarts-templates.md created"
@@ -871,7 +871,7 @@ echo "Task 3 complete — echarts-templates.md created"
 - Consumes: SKILL.md 中 Step 2 的引用
 - Produces: 数据获取三级降级链、CSV/JSON/Web 数据 → ECharts 格式转换规则、示例数据生成指引
 
-- [ ] **Step 1: 创建 data-processing.md 完整内容**
+- [x] **Step 1: 创建 data-processing.md 完整内容**
 
 写入以下内容到 `C:\Users\PC\.claude\skills\data-to-chart\reference\data-processing.md`：
 
@@ -1076,7 +1076,7 @@ var exampleData = {
 ```
 ````
 
-- [ ] **Step 2: 验证文件已创建**
+- [x] **Step 2: 验证文件已创建**
 
 ```bash
 test -f "/c/Users/PC/.claude/skills/data-to-chart/reference/data-processing.md" && echo "PASS" || echo "FAIL"
@@ -1084,7 +1084,7 @@ test -f "/c/Users/PC/.claude/skills/data-to-chart/reference/data-processing.md" 
 
 Expected: `PASS`
 
-- [ ] **Step 3: 提交（如使用 Git）**
+- [x] **Step 3: 提交（如使用 Git）**
 
 ```bash
 echo "Task 4 complete — data-processing.md created"
@@ -1101,7 +1101,7 @@ echo "Task 4 complete — data-processing.md created"
 - Consumes: Task 1-4 创建的所有文件
 - Produces: 验收测试通过记录，确认 skill 满足 design doc 的所有验收场景
 
-- [ ] **Step 1: 验证目录结构完整性**
+- [x] **Step 1: 验证目录结构完整性**
 
 ```bash
 echo "=== Skill 目录结构 ===" && \
@@ -1115,7 +1115,7 @@ echo "reference/data-processing.md"
 
 Expected: 输出显示 4 个文件均存在
 
-- [ ] **Step 2: 验证 SKILL.md frontmatter 格式**
+- [x] **Step 2: 验证 SKILL.md frontmatter 格式**
 
 ```bash
 echo "=== Frontmatter 检查 ===" && \
@@ -1124,7 +1124,7 @@ head -5 "/c/Users/PC/.claude/skills/data-to-chart/SKILL.md"
 
 Expected: 显示 `---` 包裹的 YAML，包含 `name: data-to-chart` 和 `description:` 字段
 
-- [ ] **Step 3: 验证图表映射表覆盖 12 种类型**
+- [x] **Step 3: 验证图表映射表覆盖 12 种类型**
 
 ```bash
 echo "=== 图表类型覆盖检查 ===" && \
@@ -1133,7 +1133,7 @@ grep -oP '### 优先级 \d+.*?→ `\w+`' "/c/Users/PC/.claude/skills/data-to-cha
 
 Expected: 显示 12 行，每行对应一种图表类型和优先级
 
-- [ ] **Step 4: 验证 ECharts 模板覆盖 12 种类型**
+- [x] **Step 4: 验证 ECharts 模板覆盖 12 种类型**
 
 ```bash
 echo "=== 模板类型覆盖检查 ===" && \
@@ -1142,7 +1142,7 @@ grep -c "^### \d+\." "/c/Users/PC/.claude/skills/data-to-chart/reference/echarts
 
 Expected: `12`
 
-- [ ] **Step 5: 验证数据处理降级链完整**
+- [x] **Step 5: 验证数据处理降级链完整**
 
 ```bash
 echo "=== 降级链检查 ===" && \
@@ -1151,7 +1151,7 @@ grep -c "### 级别" "/c/Users/PC/.claude/skills/data-to-chart/reference/data-pr
 
 Expected: `3`
 
-- [ ] **Step 6: 模拟触发关键词匹配**
+- [x] **Step 6: 模拟触发关键词匹配**
 
 ```bash
 echo "=== SKILL.md 触发关键词 ===" && \
@@ -1160,7 +1160,7 @@ grep "画图\|图表\|可视化\|数据展示\|生成图\|chart\|graph\|plot" "/
 
 Expected: 显示 description 字段中包含所有触发关键词
 
-- [ ] **Step 7: 验证 HTML 骨架完整性**
+- [x] **Step 7: 验证 HTML 骨架完整性**
 
 ```bash
 echo "=== HTML 骨架必要元素 ===" && \
@@ -1171,7 +1171,7 @@ grep -c "echoarts@5.4.3" "/c/Users/PC/.claude/skills/data-to-chart/reference/ech
 
 Expected: 每行输出大于 0（echarts.init、chart.resize、CDN 版本号均已包含）
 
-- [ ] **Step 8: 提交验收结果**
+- [x] **Step 8: 提交验收结果**
 
 ```bash
 echo "=== 验收完成 ===" && \
@@ -1188,12 +1188,12 @@ Expected: 4 个文件全部就位，所有检查通过
 
 在标记此计划完成前，确认：
 
-- [ ] `SKILL.md` 包含完整 5 步执行流程和 3 个参考文件索引
-- [ ] `chart-mapping.md` 覆盖全部 12 种图表类型，含冲突解决决策树
-- [ ] `echarts-templates.md` 包含全部 12 种类型的 option 骨架 + 通用 HTML 骨架
-- [ ] `data-processing.md` 包含三级降级链 + 4 种数据格式转换规则
-- [ ] 所有文件部署在 `C:\Users\PC\.claude\skills\data-to-chart\` 下
-- [ ] 触发关键词：画图、图表、可视化、数据展示、生成图、chart、graph、plot
-- [ ] 斜杠命令 `/data-to-chart` 在 frontmatter 中声明
-- [ ] CDN 版本：ECharts 5.4.3
-- [ ] 业务优先原则在 SKILL.md 和 chart-mapping.md 中明确
+- [x] `SKILL.md` 包含完整 5 步执行流程和 3 个参考文件索引
+- [x] `chart-mapping.md` 覆盖全部 12 种图表类型，含冲突解决决策树
+- [x] `echarts-templates.md` 包含全部 12 种类型的 option 骨架 + 通用 HTML 骨架
+- [x] `data-processing.md` 包含三级降级链 + 4 种数据格式转换规则
+- [x] 所有文件部署在 `C:\Users\PC\.claude\skills\data-to-chart\` 下
+- [x] 触发关键词：画图、图表、可视化、数据展示、生成图、chart、graph、plot
+- [x] 斜杠命令 `/data-to-chart` 在 frontmatter 中声明
+- [x] CDN 版本：ECharts 5.4.3
+- [x] 业务优先原则在 SKILL.md 和 chart-mapping.md 中明确
