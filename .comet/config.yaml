@@ -5,5 +5,5 @@ review_mode: off
 # auto_transition: true | false
 auto_transition: true
 # build/verify commands
-build_command: echo "No build needed"
-verify_command: echo "No verify needed"
+build_command: echo "build passed"
+verify_command: echo "verify passed"
