@@ -17,7 +17,7 @@ verification_report: docs/superpowers/reports/2026-07-06-data-to-chart-verify.md
 branch_status: handled
 created_at: 2026-07-06
 verified_at: 2026-07-06
-archived: false
+archived: true
 handoff_context: openspec/changes/data-to-chart/.comet/handoff/design-context.json
 handoff_hash: 98009a580f470ec78284da85150a724ea7e6664122c323f671a26693e23610bc
 build_command: echo "build passed"

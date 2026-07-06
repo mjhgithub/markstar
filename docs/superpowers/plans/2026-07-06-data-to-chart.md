@@ -2,6 +2,7 @@
 change: data-to-chart
 design-doc: docs/superpowers/specs/2026-07-06-data-to-chart-design.md
 base-ref: N/A（非 Git 仓库）
+archived-with: 2026-07-06-data-to-chart
 ---
 
 # data-to-chart — AI Agent Skill 实施计划
@@ -24,6 +25,7 @@ base-ref: N/A（非 Git 仓库）
 - 业务场景优先于数据结构 — 冲突时以业务为准
 - 首版范围：12 种图表类型，仅中国地图，不含混合图表/3D
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### Task 1: Skill 骨架搭建 — SKILL.md 主入口
@@ -45,9 +47,11 @@ mkdir -p "/c/Users/PC/.claude/skills/data-to-chart/reference"
 写入以下内容到 `C:\Users\PC\.claude\skills\data-to-chart\SKILL.md`：
 
 ````markdown
+archived-with: 2026-07-06-data-to-chart
 ---
 name: data-to-chart
 description: Use when the user wants to create charts, graphs, or data visualizations, or uses Chinese keywords like 画图/图表/可视化/数据展示/生成图表. Also triggered by /data-to-chart command. Supports automatic chart type selection based on business scenario analysis with ECharts.
+archived-with: 2026-07-06-data-to-chart
 ---
 
 # data-to-chart — 智能图表生成
@@ -62,6 +66,7 @@ description: Use when the user wants to create charts, graphs, or data visualiza
 
 严格按以下 5 步执行。每步完成后进入下一步，不可跳过。
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### Step 1: 场景分析 — 确定图表类型
@@ -139,6 +144,7 @@ description: Use when the user wants to create charts, graphs, or data visualiza
 1. 先输出文字说明：选型理由（1-2 句话）+ 数据来源（项目文件/Web 搜索/示例数据）
 2. 再输出完整 HTML 代码块（````html ... ````）
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 参考文件
@@ -175,6 +181,7 @@ Expected: 显示 YAML frontmatter 包含 `name: data-to-chart`
 echo "Task 1 complete — SKILL.md created"
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### Task 2: 图表选型参考文件 — chart-mapping.md
@@ -201,6 +208,7 @@ echo "Task 1 complete — SKILL.md created"
 4. 完全无匹配时默认 `bar`
 5. 多关键词跨优先级时，高优先级覆盖低优先级
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 完整映射表
@@ -215,6 +223,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：数据分类过多（>20 个时间点）且用户关注排名 → 降级为 `bar`
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 2：占比/构成 → `pie`
@@ -229,6 +238,7 @@ echo "Task 1 complete — SKILL.md created"
 - 分类 > 10 个 → 降级为 `bar`，取 TOP 10 + 「其他」
 - 数据不含可加总的组成部分 → 降级为 `bar`
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 3：排名/对比 → `bar`
@@ -241,6 +251,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：分类名过长（>8 个中文字符）→ 改用水平柱状图（`yAxis.type = "category"`）
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 4：时间+分类组合 → `bar`(stack) / `line`(areaStyle)
@@ -255,6 +266,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：系列数 > 5 → 去除 areaStyle，改用多折线
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 5：关系/相关性 → `scatter`
@@ -267,6 +279,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：数据只有一个数值列 → 降级为 `bar`，并说明「散点图需要两个数值维度，当前数据仅一个数值列」
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 6：地域 → `map`
@@ -279,6 +292,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：非中国地图数据 → 降级为 `bar`，并说明「首版仅支持中国地图，其他地区请自行注册 GeoJSON」
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 7：流程/转化 → `funnel`
@@ -291,6 +305,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：数据无明显递减 → 降级为 `bar`，并说明「漏斗图适合递减转化数据，当前数据不满足递减特征」
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 8：进度/KPI → `gauge`
@@ -303,6 +318,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：多个指标 > 1 → 降级为 `bar`（多个仪表盘不直观）
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 9：层级/树形 → `sunburst` / `treemap`
@@ -315,6 +331,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：数据扁平无层级 → 降级为 `pie` 或 `bar`
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 10：多维指标 → `radar`
@@ -327,6 +344,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：指标数 < 3 → 降级为 `bar`
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 11：分布/频次 → `bar`(histogram) / `boxplot`
@@ -339,6 +357,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：ECharts boxplot 需要 echarts-stat 扩展 → 数据量不足以分箱时降级为散点图
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 优先级 12：波动/区间 → `candlestick`
@@ -351,6 +370,7 @@ echo "Task 1 complete — SKILL.md created"
 
 **降级方案**：数据只有 2 个值（最小/最大）→ 降级为带误差线的 `bar`
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 冲突解决决策树
@@ -394,6 +414,7 @@ Expected: `PASS`
 echo "Task 2 complete — chart-mapping.md created"
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### Task 3: ECharts 模板参考文件 — echarts-templates.md
@@ -416,6 +437,7 @@ echo "Task 2 complete — chart-mapping.md created"
 > 
 > 标记说明：🔴 = 必须项（该图表类型的核心配置，移除后图表无法正确呈现） | 🟡 = 推荐项（提升可读性和交互体验） | ⚪ = 可选项（按需添加）
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 通用配置（所有图表类型共享）
@@ -453,6 +475,7 @@ animation: true,
 animationDuration: 800
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 图表类型模板
@@ -780,6 +803,7 @@ option = {
 };
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 完整 HTML 骨架
@@ -860,6 +884,7 @@ Expected: 输出 `12`（12 种图表类型模板均已包含）
 echo "Task 3 complete — echarts-templates.md created"
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### Task 4: 数据处理参考文件 — data-processing.md
@@ -899,6 +924,7 @@ echo "Task 3 complete — echarts-templates.md created"
 
 **失败时**：进入级别 2
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 级别 2：Web 搜索
@@ -917,6 +943,7 @@ echo "Task 3 complete — echarts-templates.md created"
 
 **失败时**：进入级别 3
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### 级别 3：示例数据
@@ -928,6 +955,7 @@ echo "Task 3 complete — echarts-templates.md created"
 
 **输出标注**：必须在输出中明确标注「⚠️ 已使用示例数据，非真实数据」
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 数据格式转换规则
@@ -1011,6 +1039,7 @@ series: [{ type: 'bar', data: [2154, 3815, 2501] }]
 2. 手动整理为键值对格式
 3. 按 JSON 对象转换规则处理
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 数据质量检查
@@ -1034,6 +1063,7 @@ function cleanValue(val) {
 }
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 双 yAxis 使用准则
@@ -1054,6 +1084,7 @@ series: [
 ]
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 示例数据生成指引
@@ -1090,6 +1121,7 @@ Expected: `PASS`
 echo "Task 4 complete — data-processing.md created"
 ```
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ### Task 5: 端到端验收测试
@@ -1182,6 +1214,7 @@ echo "All checks passed."
 
 Expected: 4 个文件全部就位，所有检查通过
 
+archived-with: 2026-07-06-data-to-chart
 ---
 
 ## 完成检查清单

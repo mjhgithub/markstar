@@ -1,0 +1,37 @@
+{
+  "name": "markstar",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "description": "MarkStar — AI 编程技能集合。智能图表生成（data-to-chart）等 Claude Code skills，一行 npx 安装",
+  "type": "module",
+  "bin": {
+    "markstar": "bin/markstar.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "LICENSE"
+  ],
+  "keywords": [
+    "claude-code",
+    "skill",
+    "echarts",
+    "chart",
+    "visualization",
+    "dashboard",
+    "data-to-chart",
+    "data-viz"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjhgithub/markstar.git"
+  },
+  "homepage": "https://github.com/mjhgithub/markstar#readme",
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

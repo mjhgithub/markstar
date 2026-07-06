@@ -2,6 +2,8 @@
 comet_change: data-to-chart
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-07-06-data-to-chart
+status: final
 ---
 
 # data-to-chart — AI Agent Skill 技术设计
@@ -92,9 +94,13 @@ Agent 必须先用 Read 工具加载 `reference/chart-mapping.md`，然后按优
 ### SKILL.md frontmatter
 
 ```yaml
+archived-with: 2026-07-06-data-to-chart
+status: final
 ---
 name: data-to-chart
 description: Use when the user wants to create charts, graphs, or data visualizations, or uses Chinese keywords like 画图/图表/可视化/数据展示/生成图表. Also triggered by /data-to-chart command. Supports automatic chart type selection based on business scenario analysis with ECharts.
+archived-with: 2026-07-06-data-to-chart
+status: final
 ---
 ```
 
