@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-npx markstar
+npx @mjhnpm/markstar
 ```
 
 技能会自动安装到 `~/.claude/skills/`，重启 Claude Code 即可使用。

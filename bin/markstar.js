@@ -4,10 +4,10 @@
  * MarkStar — AI 编程技能集合
  *
  * 用法：
- *   npx markstar                    自动安装到 ~/.claude/skills/
- *   npx markstar --uninstall        卸载
- *   npx markstar --help             帮助
- *   npx markstar --version          版本号
+ *   npx @mjhnpm/markstar            自动安装到 ~/.claude/skills/
+ *   npx @mjhnpm/markstar --uninstall 卸载
+ *   npx @mjhnpm/markstar --help     帮助
+ *   npx @mjhnpm/markstar --version  版本号
  */
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, copyFileSync, lstatSync, realpathSync, rmSync } from 'fs';
@@ -66,7 +66,7 @@ function install() {
   console.log(`\n  markstar v${PKG.version} — AI 编程技能集合\n`);
 
   if (!existsSync(SKILLS_SRC)) {
-    console.error('  ❌ skills 源目录不存在，请重新安装 markstar。');
+    console.error('  skills 源目录不存在，请重新安装 markstar。');
     process.exit(1);
   }
 
@@ -80,18 +80,18 @@ function install() {
 
   const skillEntries = scanSkillEntries(SKILLS_SRC);
   for (const s of skillEntries) {
-    console.log(`  ✅ ${s.name} — ${s.desc}`);
+    console.log(`  ${s.name} — ${s.desc}`);
   }
 
   console.log('\n  安装完成！重启 Claude Code 即可使用。\n');
-  console.log('  卸载：npx markstar --uninstall\n');
+  console.log('  卸载：npx @mjhnpm/markstar --uninstall\n');
 }
 
 function uninstall() {
   console.log(`\n  markstar v${PKG.version} — 卸载\n`);
 
   if (!existsSync(SKILLS_SRC)) {
-    console.error('  ❌ skills 源目录不存在，无法确定要卸载的技能。');
+    console.error('  skills 源目录不存在，无法确定要卸载的技能。');
     process.exit(1);
   }
 
@@ -109,7 +109,7 @@ function uninstall() {
   for (const name of readdirSync(dest, { withFileTypes: true })) {
     if (name.isDirectory() && srcNames.has(name.name)) {
       rmSync(resolve(dest, name.name), { recursive: true, force: true });
-      console.log(`  ✅ 已删除: ${name.name}`);
+      console.log(`  已删除: ${name.name}`);
       removed++;
     }
   }
@@ -126,10 +126,10 @@ function showHelp() {
   markstar v${PKG.version} — AI 编程技能集合
 
   用法：
-    npx markstar              安装所有技能到 ~/.claude/skills/
-    npx markstar --uninstall  卸载
-    npx markstar --help       帮助
-    npx markstar --version    版本号
+    npx @mjhnpm/markstar              安装所有技能到 ~/.claude/skills/
+    npx @mjhnpm/markstar --uninstall  卸载
+    npx @mjhnpm/markstar --help       帮助
+    npx @mjhnpm/markstar --version    版本号
 
   已收录技能：${countDirs(SKILLS_SRC)} 个
 `);
