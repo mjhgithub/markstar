@@ -19,6 +19,7 @@ npx -y markstar
 /data-to-chart 2026年全球智能手机市场份额饼图   ← 无本地数据时自动从网络搜索
 /data-to-chart 各部门人员分布饼图
 /data-to-chart 大屏：Q2 运营数据概览           ← 自动触发仪表盘模式
+/data-to-chart 大屏：2026年中国新能源汽车市场分析 ← 仪表盘 + 从网络搜索数据
 ```
 
 | 能力 | 说明 |
