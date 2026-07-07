@@ -28,5 +28,5 @@
 
 ## 6. 发布
 
-- [ ] 6.1 提交代码到 GitHub
-- [ ] 6.2 发布新版 markstar 到 npm
+- [x] 6.1 提交代码到 GitHub
+- [x] 6.2 发布新版 markstar 到 npm

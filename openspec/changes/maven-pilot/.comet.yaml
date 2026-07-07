@@ -20,3 +20,4 @@ verified_at: null
 archived: false
 handoff_context: openspec/changes/maven-pilot/.comet/handoff/design-context.json
 handoff_hash: 6069b94964abaa6c7304031465e168d27f161321802043ad8b631dd999dfe05a
+build_command: 'node -e "console.log(\"build ok\")"'
