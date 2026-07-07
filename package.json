@@ -1,5 +1,5 @@
 {
-  "name": "@mjhnpm/markstar",
+  "name": "markstar",
   "version": "1.0.0",
   "engines": {
     "node": ">=16.0.0"
@@ -30,8 +30,5 @@
   },
   "homepage": "https://github.com/mjhgithub/markstar#readme",
   "author": "",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  }
+  "license": "MIT"
 }

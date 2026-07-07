@@ -4,10 +4,10 @@
  * MarkStar — AI 编程技能集合
  *
  * 用法：
- *   npx @mjhnpm/markstar            自动安装到 ~/.claude/skills/
- *   npx @mjhnpm/markstar --uninstall 卸载
- *   npx @mjhnpm/markstar --help     帮助
- *   npx @mjhnpm/markstar --version  版本号
+ *   npx markstar                    自动安装到 ~/.claude/skills/
+ *   npx markstar --uninstall        卸载
+ *   npx markstar --help             帮助
+ *   npx markstar --version          版本号
  */
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, copyFileSync, lstatSync, realpathSync, rmSync } from 'fs';
@@ -84,7 +84,7 @@ function install() {
   }
 
   console.log('\n  安装完成！重启 Claude Code 即可使用。\n');
-  console.log('  卸载：npx @mjhnpm/markstar --uninstall\n');
+  console.log('  卸载：npx markstar --uninstall\n');
 }
 
 function uninstall() {
@@ -126,10 +126,10 @@ function showHelp() {
   markstar v${PKG.version} — AI 编程技能集合
 
   用法：
-    npx @mjhnpm/markstar              安装所有技能到 ~/.claude/skills/
-    npx @mjhnpm/markstar --uninstall  卸载
-    npx @mjhnpm/markstar --help       帮助
-    npx @mjhnpm/markstar --version    版本号
+    npx markstar              安装所有技能到 ~/.claude/skills/
+    npx markstar --uninstall  卸载
+    npx markstar --help       帮助
+    npx markstar --version    版本号
 
   已收录技能：${countDirs(SKILLS_SRC)} 个
 `);
