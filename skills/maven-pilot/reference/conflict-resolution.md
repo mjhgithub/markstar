@@ -43,6 +43,8 @@
 
 **何时用：** 某个依赖带入了不需要的旧版本，而其他路径已经有新版本时。
 
+**scope 注意**：排除 `provided` 或 `test` scope 的传递依赖有风险——这些依赖仍出现在编译/测试类路径上，排除可能导致 ClassNotFoundException。对 provided/test scope 的冲突，优先用 dependencyManagement 锁定版本，而非 exclusion。
+
 ## 修复安全约束（硬性规则）
 
 1. **优先锁定当前使用的版本** — 选择 Maven 最短路径获胜的版本（即实际运行中的版本）

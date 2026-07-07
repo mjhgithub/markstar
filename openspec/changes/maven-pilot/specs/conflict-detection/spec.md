@@ -7,10 +7,10 @@ The system SHALL detect Maven dependency version conflicts by invoking the Maven
 
 #### Scenario: Run conflict detection successfully
 - **WHEN** user runs `/maven-pilot check` in a Maven project root directory
-- **THEN** the system SHALL invoke pilot and produce a structured conflict report listing each conflict with groupId:artifactId, conflicting versions, and dependency paths
+- **THEN** the system SHALL invoke `mvn dependency:tree -Dverbose` and produce a structured conflict report listing each conflict with groupId:artifactId, conflicting versions, and dependency paths
 
 #### Scenario: No conflicts found
-- **WHEN** the pilot report shows no conflicts
+- **WHEN** the dependency tree shows no conflicts
 - **THEN** the system SHALL report "No dependency conflicts found"
 
 #### Scenario: Maven or pom.xml not found
@@ -24,7 +24,7 @@ The system SHALL analyze each detected conflict and provide:
 - Transitive dependency source explanation in natural language
 
 #### Scenario: AI explains a conflict
-- **WHEN** pilot reports a version conflict for a dependency
+- **WHEN** dependency:tree reports a version conflict for a dependency
 - **THEN** the system SHALL output for each conflict: what versions are in conflict, which artifact introduced each version (the full dependency path), which version is recommended and why
 
 ### Requirement: Default entry point (no args)

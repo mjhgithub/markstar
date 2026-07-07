@@ -39,7 +39,14 @@ mvn dependency:tree -Dincludes=com.google.guava:*
 [INFO]    \- com.google.guava:guava:jar:32.0.1-jre:compile
 ```
 
-3.x 版本默认不显示冲突标记。此时需要结合 `-Dincludes` 过滤来确认实际使用的版本。
+3.x 版本默认不显示冲突标记。此时需要按以下步骤推断冲突：
+
+1. **遍历所有 `groupId:artifactId:version` 出现**，记录每个出现的树深度（`+-` 缩进层级）和版本号
+2. **发现重复 groupId:artifactId**：当同一 groupId:artifactId 在树中出现 ≥2 次且版本不同 → 即冲突
+3. **判定获胜版本**：按 Maven 最短路径规则
+   - 深度小的获胜（根 pom 直接依赖深度=1，传递依赖深度≥2）
+   - 同深度时，先声明的获胜（xml 顺序）
+4. **验证**：用 `mvn dependency:tree -Dincludes=<groupId>:<artifactId>` 确认实际使用版本
 
 ### 冲突检测规则
 
