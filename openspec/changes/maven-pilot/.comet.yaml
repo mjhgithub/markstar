@@ -13,7 +13,7 @@ base_ref: 7cbf5e3da289d6aee47fcda5d04835083697f6bd
 design_doc: docs/superpowers/specs/2026-07-07-maven-pilot-design.md
 plan: docs/superpowers/plans/2026-07-07-maven-pilot.md
 verify_result: pending
-verification_report: null
+verification_report: docs/superpowers/reports/2026-07-07-maven-pilot-verify.md
 branch_status: pending
 created_at: 2026-07-07
 verified_at: null
