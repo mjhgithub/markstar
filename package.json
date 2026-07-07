@@ -1,10 +1,10 @@
 {
   "name": "markstar",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "engines": {
     "node": ">=16.0.0"
   },
-  "description": "MarkStar — AI 编程技能集合。智能图表生成（data-to-chart）等 Claude Code skills，一行 npx 安装",
+  "description": "MarkStar — AI 编程技能集合。智能图表生成（data-to-chart）、Maven 依赖冲突检测与修复（maven-pilot）等 Claude Code skills，一行 npx 安装",
   "type": "module",
   "bin": {
     "markstar": "bin/markstar.js"
@@ -22,7 +22,13 @@
     "visualization",
     "dashboard",
     "data-to-chart",
-    "data-viz"
+    "data-viz",
+    "maven",
+    "dependency-management",
+    "conflict-detection",
+    "auto-fix",
+    "pom.xml",
+    "java"
   ],
   "repository": {
     "type": "git",
