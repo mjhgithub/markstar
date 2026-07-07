@@ -15,6 +15,7 @@ npx markstar
 | 技能 | 命令 | 说明 |
 |------|------|------|
 | **data-to-chart** | `/data-to-chart` | 智能图表生成，自动选择 ECharts 图表类型并生成可交互 HTML。支持大屏/仪表盘模式。 |
+| **maven-pilot** | `/maven-pilot` | Maven 依赖冲突检测与自动修复。check 只检测，fix 检测+修复，也支持自然语言对话。零第三方依赖。 |
 
 ## 卸载
 
