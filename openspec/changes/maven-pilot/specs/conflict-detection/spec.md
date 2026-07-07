@@ -1,7 +1,5 @@
 ## ADDED Requirements
 
-## MODIFIED Requirements
-
 ### Requirement: Conflict detection via dependency:tree
 The system SHALL detect Maven dependency version conflicts by invoking the Maven built-in `dependency:tree` command. The system SHALL first attempt `mvn dependency:tree -Dverbose` (compatible with maven-dependency-plugin 2.x). If that fails or produces no conflict markers, the system SHALL fall back to `mvn dependency:tree` (for 3.x where `-Dverbose` was removed). The system SHALL parse the text output to identify all version conflicts, transitive dependency paths, and the `omitted for conflict` / `version managed from` markers.
 
