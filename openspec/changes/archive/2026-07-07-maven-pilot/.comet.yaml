@@ -17,7 +17,7 @@ verification_report: docs/superpowers/reports/2026-07-07-maven-pilot-verify.md
 branch_status: handled
 created_at: 2026-07-07
 verified_at: 2026-07-07
-archived: false
+archived: true
 handoff_context: openspec/changes/maven-pilot/.comet/handoff/design-context.json
 handoff_hash: 6069b94964abaa6c7304031465e168d27f161321802043ad8b631dd999dfe05a
 build_command: 'node -e "console.log(\"build ok\")"'

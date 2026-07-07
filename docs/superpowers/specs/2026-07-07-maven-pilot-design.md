@@ -2,6 +2,8 @@
 comet_change: maven-pilot
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-07-07-maven-pilot
+status: final
 ---
 
 # maven-pilot — Maven 依赖冲突检测与自动修复
